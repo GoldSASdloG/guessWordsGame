@@ -30,10 +30,17 @@ public class Main {
         }
         printEndGame(word, playerGuesses);
     }
-    private static boolean isLose(int wrongCount){
+
+    private static boolean getPlayerGuesses(Scanner keyboard, String word, List<Character> playerGuesses) {
+        System.out.println("Enter a letter!!!");
+        String letterGuess = keyboard.nextLine();
+        playerGuesses.add(letterGuess.charAt(0));
+        return word.contains(letterGuess);
+    }
+
+    private static boolean isLose(int wrongCount) {
         return wrongCount >= 6;
     }
-}
 
 
     private static String pickRandomWord(List<String> words) {
@@ -42,17 +49,19 @@ public class Main {
         System.out.println(word); //чтобы видеть искомое слово
         List<Character> playerGuesses = new ArrayList<>();
         printWordStars(word, playerGuesses);
-        int wrongCount = 0;
         return word;
+    }
+
+    private static void printWordStars(String word, List<Character> playerGuesses) {
     }
 
     private static boolean isWinPrintStars(String word, List<Character> playerGuesses) {
         int correctCount = 0;
         for (int i = 0; i < word.length(); i++) {
             if (playerGuesses.contains(word.charAt(i))) {
-                System.out.println(word.charAt(i));
+                System.out.print(word.charAt(i));
                 correctCount++;
-            } else System.out.println("*");
+            } else System.out.print("*");
         }
         System.out.println();
         return word.length() == correctCount;
@@ -67,4 +76,5 @@ public class Main {
                 ? "!!!! You Win !!!!"
                 : "You are LOSER! Game over!!!");
     }
+}
 
