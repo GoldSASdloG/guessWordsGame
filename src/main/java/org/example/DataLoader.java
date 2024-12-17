@@ -20,9 +20,5 @@ public class DataLoader {
         }
         return words;
     }
-
-    List words = loadWords();
-    Scanner keyboard = new Scanner(System.in);
-
 }
 
