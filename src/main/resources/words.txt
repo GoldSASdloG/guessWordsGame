@@ -1,0 +1,7 @@
+weather
+pencil
+book
+umbrella
+wallet
+school
+lesson
